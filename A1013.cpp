@@ -11,34 +11,34 @@ int inq[MAX];
 int city;
 
 void DFS(int i) {
-	inq[i] = 1;
-	for (auto cy : gra[i]) {
+    inq[i] = 1;
+    for (auto cy : gra[i]) {
     if (cy == city) continue;
-		if (inq[cy] == 0) DFS(cy);
-	}
+        if (inq[cy] == 0) DFS(cy);
+    }
 }
 
 int main() {
-	scanf("%d%d%d", &n, &m, &k);
-	for (int i = 0; i < m; ++i) {
-		int a, b;
-		scanf("%d%d", &a, &b);
-		gra[a].push_back(b);
-		gra[b].push_back(a);
-	}
-	
-	while (k--) {
-		scanf("%d", &city);
-		fill(inq, inq + n + 1, 0);
-		int ans = 0;
-		for (int i = 1; i <= n; ++i) {
-			if (i == city) continue;
-			if (inq[i] == 0) {
-				ans++;
-				DFS(i);
-			}
-		}
-		printf("%d\n", ans - 1);
-	}
-	return 0;
+    scanf("%d%d%d", &n, &m, &k);
+    for (int i = 0; i < m; ++i) {
+        int a, b;
+        scanf("%d%d", &a, &b);
+        gra[a].push_back(b);
+        gra[b].push_back(a);
+    }
+    
+    while (k--) {
+        scanf("%d", &city);
+        fill(inq, inq + n + 1, 0);
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            if (i == city) continue;
+            if (inq[i] == 0) {
+                ans++;
+                DFS(i);
+            }
+        }
+        printf("%d\n", ans - 1);
+    }
+    return 0;
 }
