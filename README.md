@@ -2,7 +2,6 @@
 PAT甲级代码
 
 ## 索引
-
 A1001. A+B Format (20) [字符串处理]  
 A1002. A+B for Polynomials (25) [模拟]  
 A1003. Emergency (25) [Dijkstra算法]  
