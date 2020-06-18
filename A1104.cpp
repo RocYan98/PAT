@@ -1,26 +1,17 @@
-#include<iostream>
-#include <vector>
+#include <iostream>
 
 #define LL long long
 using namespace std;
-vector<LL> seq;
 
 int main() {
     int n;
-    LL ans = 0;
     scanf("%d", &n);
-    for (int i = 0; i < n; ++i) {
+    LL sum = 0;
+    for (int i = 1; i <= n; i++) { 
         double temp;
         scanf("%lf", &temp);
-        seq.push_back(temp * 1000);
+        sum += (LL)(temp * 1000) * i * (n - i + 1);
     }
-
-    ans = seq[n - 1];
-    for (int i = n - 2; i >= 0; --i) {
-        seq[i] = seq[i + 1] + seq[i] * (n - i);
-        ans += seq[i];
-    }
-
-    printf("%.2lf", ans / 1000.);
+    printf("%.2f", sum / 1000.);
     return 0;
 }
